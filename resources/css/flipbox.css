@@ -1,0 +1,54 @@
+/* Контейнер flip box - установите ширину и высоту на все, что вы хотите. Мы добавили свойство border, чтобы продемонстрировать, что сам флип выходит из коробки при наведении (удалите перспективу, если вы не хотите 3D-эффект */
+.flip-box {
+  background-color: transparent;
+  width: 300px;
+  height: 200px;
+  border: 1px solid #f1f1f1;
+  perspective: 1000px; /* Удалите это, если вы не хотите 3D-эффект */
+}
+
+/* Этот контейнер необходим для того чтобы расположить переднюю и заднюю сторону */
+.flip-box-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+/* Сделайте горизонтальный флип, когда вы перемещаете мышь над контейнером флип-бокса */
+.flip-box:hover .flip-box-inner {
+  transform: rotateY(180deg);
+}
+
+/* Расположите переднюю и заднюю стороны */
+.flip-box-front, .flip-box-back, .flip-box-front-yes, .flip-box-front-no {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+}
+
+/* Стиль лицевой стороны */
+.flip-box-front {
+  background-color: #bbb;
+  color: black;
+}
+
+.flip-box-front-yes {
+  background-color: rgb(117 211 21);
+  color: black;
+}
+
+.flip-box-front-no {
+  background-color: rgb(255, 0, 0);
+  color: black;
+}
+
+/* Стиль задней стороны */
+.flip-box-back {
+  background-color: dodgerblue;
+  color: white;
+  transform: rotateY(180deg);
+}
